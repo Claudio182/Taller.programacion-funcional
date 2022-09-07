@@ -6,7 +6,7 @@
 // naturales desde 1 hasta n.
 
 (function (/* 01. factorial (n) */) {
-    
+
     var factA = function (n) {
 
     };
@@ -16,12 +16,12 @@
             r = r * i;
         return r;
     };
-    
-    console.log (
-        factA (5), // 120
-        factB (5)  // 120
+
+    console.log(
+        factA(5), // 120
+        factB(5)  // 120
     );
-    
+
 })();
 
 
@@ -31,7 +31,7 @@
 // anteriores en la sucesión.
 
 (function (/* 02. fibonacci (n) */) {
-    
+
     var fibA = function (n) {
 
     };
@@ -44,12 +44,12 @@
         }
         return b;
     };
-    
-    console.log (
-        fibA (10), // 55
-        fibB (10)  // 55
+
+    console.log(
+        fibA(10), // 55
+        fibB(10)  // 55
     );
-    
+
 })();
 
 
@@ -59,16 +59,19 @@
 // producto de b con sigo mismo e veces.
 
 (function (/* 03. pow (b, e) */) {
-    
+    //FUNCIONANDO OK
     var pow = function (b, e) {
-
+        if (e === 1) {
+            return b
+        }
+        return b * pow(b, e - 1)
     };
-    
-    console.log (
-        pow (2, 6), // 64
-        pow (3, 6)  // 729
+
+    console.log(
+        pow(2, 6), // 64
+        pow(3, 6)  // 729
     );
-    
+
 })();
 
 
@@ -78,19 +81,38 @@
 // funciones no puede utilizarse la operación de módulo %.
 
 (function (/* 04. even (n) & odd (n) */) {
-    
+    // FUNCIONANDO OK
     var even = function (n) {
+        let num = n
 
+        if (Number.isInteger( (num/2) )) {
+            return true
+        }
+        if (odd(n)) {
+            return false
+        }
     };
     var odd = function (n) {
-
+        let num = n
+        
+        if (Number.isInteger( (num-1)/2) ) {
+            return true
+        }
+        if (even(n)) {
+            return false
+        }
     };
-    
-    console.log (
-        even (5), even (6), // false true
-        odd  (5), odd  (6)  // true false
+
+    console.log(
+        even(5), even(6), // false true
+        odd(5), odd(6)  // true false
     );
-    
+
+    console.log(
+        even(5), even(6), // false true
+        odd(5), odd(6)  // true false
+    );
+
 })();
 
 
@@ -99,15 +121,19 @@
 // addUp (3) = 1 + 2 + 3 = 6.
 
 (function (/* 05. addUp (n) */) {
-    
+    // FUNCIONANDO OK
     var addUp = function (n) {
+        return n === 1 ? 1 : n + addUp(n - 1)
+        /* f (n === 1){
+            return 1
+        }
+        return n + addUp(n - 1) */
+    }
 
-    };
-    
-    console.log (
-        addUp (5) // 15
-    );
-    
+    console.log(
+      addUp(5) // 15
+    )
+
 })();
 
 
@@ -116,15 +142,18 @@
 // digits (125) = 1 + 2 + 5 = 8.
 
 (function (/* 06. digits (n) */) {
-    
-    var digits = function (n) {
 
+    var digits = function (n) {
+        if (n < 10){
+            return n
+        }
+        return digits(Math.floor(n/10)) + digits(n%10)
     };
     
-    console.log (
-        digits (5),  // 5
-        digits (25), // 7
-        digits (125) // 8
+    console.log(
+        digits(5),  // 5
+        digits(25), // 7
+        digits(125) // 8
     );
-    
+
 })();
